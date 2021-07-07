@@ -1,0 +1,342 @@
+:root {
+  /* Theme 1 */
+  /* ******* */
+  /* Background */
+  --t1-main-color: hsl(222, 26%, 31%);
+  --t1-keypad-color: hsl(223, 31%, 20%);
+  --t1-screen-color: hsl(224, 36%, 15%);
+  /* Keys */
+  --blue-key-bg: hsl(225, 21%, 49%);
+  --blue-key-shadow: hsl(224, 28%, 35%);
+
+  --red-key-bg: hsl(6, 63%, 50%);
+  --red-key-shadow: hsl(6, 70%, 34%);
+
+  --white-key-bg: hsl(30, 25%, 89%);
+  --white-key-shadow: hsl(28, 16%, 65%);
+  /* Text */
+  --blue-text: hsl(221, 14%, 31%);
+  --white-text: hsl(0, 0%, 100%);
+
+  /* Theme 2 */
+  /* ******* */
+  /* Backgrounds */
+  --t2-main-color: hsl(0, 0%, 90%);
+  --t2-keypad-color: hsl(0, 5%, 81%);
+  --t2-screen-color: hsl(0, 0%, 93%);
+  /* Keys */
+  --cyan-key-bg: hsl(185, 42%, 37%);
+  --cyan-key-shadow: hsl(185, 58%, 25%);
+
+  --orange-key-bg: hsl(25, 98%, 40%);
+  --orange-key-shadow: hsl(25, 99%, 27%);
+
+  --t2-white-key-bg: hsl(45, 7%, 89%);
+  --t2-white-key-shadow: hsl(35, 11%, 61%);
+  /* Text */
+  --gray-text: hsl(60, 10%, 19%);
+
+  /* Theme 3 */
+  /* ******* */
+  /* Backgrounds */
+  --t3-main-color: hsl(268, 75%, 9%);
+  --t3-keypad-color: hsl(268, 71%, 12%);
+  /* Keys */
+  --light-purple-key-bg: hsl(281, 89%, 26%);
+  --light-purple-key-shadow: hsl(285, 91%, 52%);
+
+  --light-cyan-key-bg: hsl(176, 100%, 44%);
+  --light-cyan-key-shadow: hsl(177, 92%, 70%);
+
+  --purple-key-bg: hsl(268, 47%, 21%);
+  --purple-key-shadow: hsl(290, 70%, 36%);
+  /* Text */
+  --yellow-text: hsl(52, 100%, 62%);
+  --dark-gray-text: hsl(198, 20%, 13%);
+}
+
+/* Calculator */
+/* ********** */
+.calculator {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator * {
+  font-size: 32px;
+
+  transition: 0.2s;
+}
+
+.calc-container {
+  width: 90vw;
+  max-width: 30rem;
+
+  color: inherit;
+}
+
+/* Header */
+.calc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  color: inherit;
+}
+
+.calc-header * {
+  transition: 0s color;
+  transition: 0.2s left;
+}
+
+/* Theme Selector */
+.theme-interface {
+  display: flex;
+  align-items: flex-end;
+}
+.theme-interface * {
+  font-size: 15px;
+  color: inherit;
+}
+
+.theme-selector {
+  margin-left: 15px;
+}
+
+.current-theme {
+  margin: 0 0 5px 15px;
+  position: relative;
+}
+.current-theme span:nth-of-type(1) {
+  position: relative;
+  left: -5px;
+}
+.current-theme span:nth-of-type(2) {
+  position: relative;
+  left: 11px;
+}
+.current-theme span:nth-of-type(3) {
+  position: relative;
+  left: 25px;
+}
+
+.theme-slider {
+  width: 75px;
+  padding: 5px;
+
+  border-radius: 20px;
+}
+.theme-slider .slider-circle {
+  width: 15px;
+  height: 15px;
+  position: relative;
+
+  border-radius: 50%;
+}
+
+/* Visor */
+.calc-visor {
+  margin: 15px 0 25px 0;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+
+  border-radius: 0.75rem;
+  font-size: 45px;
+}
+.calc-visor div {
+  color: inherit;
+}
+
+/* Keypad */
+.calc-keypad {
+  padding: 10px;
+
+  border-radius: 0.75rem;
+}
+
+.calc-keypad div:nth-of-type(1) {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.calc-keypad div:nth-of-type(2) {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* CalcButton Component */
+/* ******************** */
+.calc-btn {
+  width: 1fr;
+  height: 50px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.5rem;
+  border: none;
+}
+
+.theme-1 .calc-btn:hover,
+.theme-2 .calc-btn:hover,
+.theme-3 .calc-btn:hover,
+.theme-1 .calc-btn.color-special:hover,
+.theme-2 .calc-btn.color-special:hover,
+.theme-3 .calc-btn.color-special:hover,
+.theme-1 .calc-btn.color-equal:hover,
+.theme-2 .calc-btn.color-equal:hover,
+.theme-3 .calc-btn.color-equal:hover {
+  transform: translateY(3.2px);
+  box-shadow: none;
+}
+
+.calc-btn.size-double {
+  width: 1fr;
+  font-size: 21px;
+}
+
+.calc-btn.color-special {
+  font-size: 21px;
+}
+
+@media screen and (max-width: 360px) {
+  .calc-btn {
+    margin: 7.5px;
+  }
+}
+
+/* Theme-1 */
+/* ******* */
+.calculator.theme-1 {
+  color: var(--white-text);
+  background: var(--t1-main-color);
+}
+
+.theme-1 .theme-slider {
+  background: var(--t1-keypad-color);
+}
+
+.theme-1 .theme-slider .slider-circle {
+  background: var(--red-key-bg);
+}
+
+.theme-1 .calc-visor {
+  background: var(--t1-screen-color);
+}
+
+.theme-1 .calc-keypad {
+  background: var(--t1-keypad-color);
+}
+
+/* CalcButton */
+.theme-1 .calc-btn {
+  color: var(--blue-text);
+  background: var(--white-key-bg);
+  box-shadow: var(--white-key-shadow) 0px 4px 0px;
+}
+
+.theme-1 .calc-btn.size-double,
+.theme-1 .calc-btn.color-special {
+  color: var(--white-text);
+  background: var(--blue-key-bg);
+  box-shadow: var(--blue-key-shadow) 0px 4px 0px;
+}
+
+.theme-1 .calc-btn.color-equal {
+  color: var(--white-text);
+  background: var(--red-key-bg);
+  box-shadow: var(--red-key-shadow) 0px 4px 0px;
+}
+
+/* Theme-2 */
+/* ******* */
+.calculator.theme-2 {
+  color: var(--gray-text);
+  background: var(--t2-main-color);
+}
+
+.theme-2 .theme-slider {
+  background: var(--t2-keypad-color);
+}
+
+.theme-2 .theme-slider .slider-circle {
+  background: var(--orange-key-bg);
+}
+
+.theme-2 .calc-visor {
+  color: var(--gray-text);
+  background: var(--t2-screen-color);
+}
+
+.theme-2 .calc-keypad {
+  background: var(--t2-keypad-color);
+}
+
+/* CalcButton */
+.theme-2 .calc-btn {
+  color: var(--gray-text);
+  background: var(--t2-white-key-bg);
+  box-shadow: var(--t2-white-key-shadow) 0px 4px;
+}
+
+.theme-2 .calc-btn.size-double,
+.theme-2 .calc-btn.color-special {
+  color: var(--white-text);
+  background: var(--cyan-key-bg);
+  box-shadow: var(--cyan-key-shadow) 0px 4px;
+}
+
+.theme-2 .calc-btn.color-equal {
+  color: var(--white-text);
+  background: var(--orange-key-bg);
+  box-shadow: var(--orange-key-shadow) 0px 4px;
+}
+
+/* Theme-3 */
+/* ******* */
+.calculator.theme-3 {
+  color: var(--yellow-text);
+  background: var(--t3-main-color);
+}
+
+.theme-3 .theme-slider {
+  background: var(--t3-keypad-color);
+}
+
+.theme-3 .theme-slider .slider-circle {
+  background: var(--light-cyan-key-bg);
+}
+
+.theme-3 .calc-visor {
+  color: var(--yellow-text);
+  background: var(--t3-keypad-color);
+}
+
+.theme-3 .calc-keypad {
+  background: var(--t3-keypad-color);
+}
+
+/* CalcButton */
+.theme-3 .calc-btn {
+  color: var(--yellow-text);
+  background: var(--purple-key-bg);
+  box-shadow: var(--purple-key-shadow) 0px 4px;
+}
+
+.theme-3 .calc-btn.size-double,
+.theme-3 .calc-btn.color-special {
+  color: var(--white-text);
+  background: var(--light-purple-key-bg);
+  box-shadow: var(--light-purple-key-shadow) 0px 4px;
+}
+
+.theme-3 .calc-btn.color-equal {
+  color: var(--dark-gray-text);
+  background: var(--light-cyan-key-bg);
+  box-shadow: var(--light-cyan-key-shadow) 0px 4px;
+}
