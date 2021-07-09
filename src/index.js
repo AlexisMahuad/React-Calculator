@@ -1,6 +1,5 @@
-"strict-mode";
-const React = require("react"),
-  ReactDOM = require("react-dom");
+import * as React from "react";
+import { render } from "react-dom";
 
 import "./public/css/index.css";
 
@@ -18,4 +17,4 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+render(<App />, document.getElementById("app"));
