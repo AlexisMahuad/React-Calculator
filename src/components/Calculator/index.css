@@ -191,7 +191,7 @@
 .theme-1 .calc-btn.color-equal:hover,
 .theme-2 .calc-btn.color-equal:hover,
 .theme-3 .calc-btn.color-equal:hover {
-  transform: translateY(3.2px);
+  transform: translateY(4px);
   box-shadow: none;
 }
 
@@ -237,20 +237,20 @@
 .theme-1 .calc-btn {
   color: var(--blue-text);
   background: var(--white-key-bg);
-  box-shadow: var(--white-key-shadow) 0px 4px 0px;
+  box-shadow: var(--white-key-shadow) 0px 3px;
 }
 
 .theme-1 .calc-btn.size-double,
 .theme-1 .calc-btn.color-special {
   color: var(--white-text);
   background: var(--blue-key-bg);
-  box-shadow: var(--blue-key-shadow) 0px 4px 0px;
+  box-shadow: var(--blue-key-shadow) 0px 3px;
 }
 
 .theme-1 .calc-btn.color-equal {
   color: var(--white-text);
   background: var(--red-key-bg);
-  box-shadow: var(--red-key-shadow) 0px 4px 0px;
+  box-shadow: var(--red-key-shadow) 0px 3px;
 }
 
 /* Theme-2 */

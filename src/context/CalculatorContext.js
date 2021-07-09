@@ -12,10 +12,11 @@ function CalculatorProvider({ children }) {
 
   function calculate() {
     let data = userInput;
+
     for (let el of ["+", "-", "/", "x"]) {
-      data = data.replace(el, ` ${el} `);
+      data = data.replaceAll(el, ` ${el} `);
     }
-    data = data.replace(",", ".");
+    data = data.replaceAll(",", ".");
     data = data.split(" ");
 
     if (data[0] == "" && data[1] == "-") {
@@ -53,7 +54,7 @@ function CalculatorProvider({ children }) {
         i = data.indexOf(el);
       }
     }
-    return String(data).replace(".", ",");
+    return String(data).replaceAll(".", ",");
   }
 
   return (
