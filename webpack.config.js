@@ -1,4 +1,5 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin"),
+  MiniCSSExtractPlugin = require("mini-css-extract-plugin");
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: "./src/public/index.html",
@@ -6,6 +7,13 @@ const htmlPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "bundle.js",
+  },
+  optimization: {
+    usedExports: true,
+  },
   module: {
     rules: [
       {
@@ -14,15 +22,19 @@ module.exports = {
         use: ["babel-loader"],
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.html$/i,
+        use: {
+          loader: "html-loader",
+          options: {
+            minimize: true,
+          },
+        },
       },
       {
-        test: /\.(jpe?g|png|gif|svg|webp)$/i,
-        use: ["file-loader?name=assets/[name].[ext]", "image-webpack-loader"],
+        test: /\.css$/,
+        use: [MiniCSSExtractPlugin.loader, "css-loader"],
       },
     ],
   },
-  devtool: "inline-source-map",
-  plugins: [htmlPlugin],
+  plugins: [htmlPlugin, new MiniCSSExtractPlugin()],
 };
