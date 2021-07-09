@@ -17,6 +17,10 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(jpe?g|png|gif|svg|webp)$/i,
+        use: ["file-loader?name=assets/[name].[ext]", "image-webpack-loader"],
+      },
     ],
   },
   devtool: "inline-source-map",
