@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 // Contexts
 import { useCalculatorContext } from "../../context/CalculatorContext";
@@ -44,8 +44,45 @@ function CalcButton({ children }) {
     action = () => setUserInput(calculate());
   }
 
+  // Click Animation:
+  // ****************
+  const self = React.useRef();
+
+  React.useEffect(function () {
+    for (let el of ["mousedown", "touchstart"]) {
+      self.current.addEventListener(
+        el,
+        function () {
+          self.current.id = "calc-btn-clicked";
+        },
+        { passive: true }
+      );
+    }
+    for (let el of ["mouseup", "touchend"]) {
+      self.current.addEventListener(
+        el,
+        function () {
+          self.current.id = "";
+        },
+        { passive: true }
+      );
+    }
+
+    return function () {
+      for (let el of ["mousedown", "touchstart", "mouseup", "touchend"]) {
+        self.current.removeEventListener(el);
+      }
+    };
+  }, []);
+
+  // Return
+  // ******
   return (
-    <button className={["calc-btn", size, color].join(" ")} onClick={action}>
+    <button
+      className={["calc-btn", size, color].join(" ")}
+      onClick={action}
+      ref={self}
+    >
       {children}
     </button>
   );

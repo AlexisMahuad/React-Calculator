@@ -182,19 +182,6 @@
   border: none;
 }
 
-.theme-1 .calc-btn:hover,
-.theme-2 .calc-btn:hover,
-.theme-3 .calc-btn:hover,
-.theme-1 .calc-btn.color-special:hover,
-.theme-2 .calc-btn.color-special:hover,
-.theme-3 .calc-btn.color-special:hover,
-.theme-1 .calc-btn.color-equal:hover,
-.theme-2 .calc-btn.color-equal:hover,
-.theme-3 .calc-btn.color-equal:hover {
-  transform: translateY(4px);
-  box-shadow: none;
-}
-
 .calc-btn.size-double {
   width: 1fr;
   font-size: 21px;
@@ -339,4 +326,11 @@
   color: var(--dark-gray-text);
   background: var(--light-cyan-key-bg);
   box-shadow: var(--light-cyan-key-shadow) 0px 4px;
+}
+
+/* Click Animation */
+/* *************** */
+#calc-btn-clicked {
+  transform: translateY(4px);
+  box-shadow: none;
 }
