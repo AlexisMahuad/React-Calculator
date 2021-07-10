@@ -5,6 +5,7 @@ import { useCalculatorContext } from "../../context/CalculatorContext";
 
 function CalcButton({ children }) {
   const { userInput, setUserInput, calculate } = useCalculatorContext();
+  const [isClicked, setIsClicked] = React.useState(false);
 
   // Default key config
   let size = "size-normal",
@@ -44,44 +45,18 @@ function CalcButton({ children }) {
     action = () => setUserInput(calculate());
   }
 
-  // Click Animation:
-  // ****************
-  const self = React.useRef();
-
-  React.useEffect(function () {
-    for (let el of ["mousedown", "touchstart"]) {
-      self.current.addEventListener(
-        el,
-        function () {
-          self.current.id = "calc-btn-clicked";
-        },
-        { passive: true }
-      );
-    }
-    for (let el of ["mouseup", "touchend"]) {
-      self.current.addEventListener(
-        el,
-        function () {
-          self.current.id = "";
-        },
-        { passive: true }
-      );
-    }
-
-    return function () {
-      for (let el of ["mousedown", "touchstart", "mouseup", "touchend"]) {
-        self.current.removeEventListener(el);
-      }
-    };
-  }, []);
-
   // Return
   // ******
   return (
     <button
       className={["calc-btn", size, color].join(" ")}
       onClick={action}
-      ref={self}
+      // Button Animation:
+      onTouchStart={() => setIsClicked(true)}
+      onMouseDown={() => setIsClicked(true)}
+      onTouchEnd={() => setIsClicked(false)}
+      onMouseUp={() => setIsClicked(false)}
+      id={isClicked ? "calc-btn-clicked" : ""}
     >
       {children}
     </button>

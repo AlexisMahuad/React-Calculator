@@ -150,6 +150,16 @@
 }
 .calc-visor div {
   color: inherit;
+  overflow-x: scroll;
+}
+
+.calc-visor *::-webkit-scrollbar {
+  height: 7.5px;
+}
+
+.calc-visor *::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #00000040;
 }
 
 /* Keypad */
