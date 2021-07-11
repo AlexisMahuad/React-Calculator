@@ -7,12 +7,16 @@ import "./public/css/index.css";
 import { CalculatorProvider } from "./context/CalculatorContext";
 
 // Components
-import Calculator from "./components/Calculator/Calculator";
+const Calculator = React.lazy(() =>
+  import("./components/Calculator/Calculator")
+);
 
 function App() {
   return (
     <CalculatorProvider>
-      <Calculator />
+      <React.Suspense fallback={<div className="loading">Loading</div>}>
+        <Calculator />
+      </React.Suspense>
     </CalculatorProvider>
   );
 }

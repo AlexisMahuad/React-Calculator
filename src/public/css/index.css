@@ -6,3 +6,37 @@
   font-family: "Spartan";
   font-weight: 700;
 }
+
+.loading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 32px;
+  color: #fff;
+  background: hsl(222, 26%, 31%);
+}
+.loading::after {
+  width: 40px;
+  animation: 5s loading-animation infinite;
+  content: "...";
+}
+
+@keyframes loading-animation {
+  17.5% {
+    content: "..";
+  }
+  35% {
+    content: ".";
+  }
+  52.5% {
+    content: "";
+  }
+  70% {
+    content: ".";
+  }
+  87.5% {
+    content: "..";
+  }
+}
